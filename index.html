@@ -29,6 +29,7 @@
             color: #1a1a1a;
             background: #ffffff;
             overflow-x: hidden;
+            padding-top: 80px;
         }
 
         .container {
@@ -41,7 +42,10 @@
         header {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 247, 255, 0.98) 100%);
             padding: 0.4rem 0;
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
             backdrop-filter: blur(20px);
             border-bottom: 3px solid transparent;
@@ -51,7 +55,11 @@
             background-clip: padding-box, border-box;
             box-shadow: 0 8px 40px rgba(139, 92, 246, 0.15);
             animation: slideDown 0.6s ease-out, headerGlow 3s ease-in-out infinite;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header.hidden {
+            transform: translateY(-100%);
         }
 
         @keyframes headerGlow {
@@ -489,6 +497,50 @@
             padding: 8px 16px;
             border-radius: 8px;
             display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 14px 32px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px);
         }
 
         /* Pricing Section */
@@ -1723,6 +1775,7 @@
                 <ul>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#portfolio">Samples</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1762,6 +1815,7 @@
                         <li>Fully mobile optimized</li>
                     </ul>
                     <p class="delivery">Delivery: 5–7 days</p>
+                    <a href="#contact" class="btn btn-primary">Select Personal Website</a>
                 </div>
                 <div class="service-card">
                     <h3>Family Website</h3>
@@ -1773,6 +1827,7 @@
                         <li>Fully mobile optimized</li>
                     </ul>
                     <p class="delivery">Delivery: 10–15 days</p>
+                    <a href="#contact" class="btn btn-primary">Select Family Website</a>
                 </div>
                 <div class="service-card">
                     <h3>Business Website</h3>
@@ -1785,6 +1840,7 @@
                         <li>Fully mobile responsive</li>
                     </ul>
                     <p class="delivery">Pricing varies by scope</p>
+                    <a href="#contact" class="btn btn-primary">Select Business Website</a>
                 </div>
                 <div class="service-card">
                     <h3>Financial Tracker (Custom)</h3>
@@ -1796,6 +1852,7 @@
                         <li>Web-based application</li>
                     </ul>
                     <p class="delivery">Pricing on consultation</p>
+                    <a href="#contact" class="btn btn-primary">Request Financial Tracker</a>
                 </div>
             </div>
         </div>
@@ -2088,6 +2145,11 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
         // FAQ Accordion functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -2109,6 +2171,49 @@
                         this.classList.add('active');
                         answer.classList.add('active');
                     }
+                });
+            });
+            
+
+            // Header hide/show on scroll
+            const header = document.querySelector('header');
+            let lastScrollTop = 0;
+            const scrollThreshold = 100;
+
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > scrollThreshold) {
+                    if (scrollTop > lastScrollTop) {
+                        // Scrolling down
+                        header.classList.add('hidden');
+                    } else {
+                        // Scrolling up
+                        header.classList.remove('hidden');
+                    }
+                } else {
+                    // At the top
+                    header.classList.remove('hidden');
+                }
+
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            });
+
+            // Back to top button functionality
+            const backToTopButton = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
             });
         });
