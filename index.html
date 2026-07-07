@@ -1,2340 +1,1218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium personal and family websites for high-profile individuals in Nigeria. Luxury AI-powered static websites by Chizim Victory Felix.">
-    <title>Premium Personal & Family Websites | Chizim Victory Felix</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/HEAD.png">
-
-    <!-- Open Graph Meta Tags for Social Sharing -->
-    <meta property="og:title" content="Premium Personal & Family Websites | Chizim Victory Felix">
-    <meta property="og:description" content="Premium personal and family websites for high-profile individuals in Nigeria. Luxury AI-powered static websites.">
-    <meta property="og:image" content="https://chizimport.vercel.app/assets/images/THUMBNAIL.png">
-    <meta property="og:url" content="https://chizimport.vercel.app">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Premium Personal & Family Websites | Chizim Victory Felix">
-    <meta name="twitter:description" content="Premium personal and family websites for high-profile individuals in Nigeria.">
-    <meta name="twitter:image" content="https://chizimport.vercel.app/assets/images/THUMBNAIL.png">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PS5635DHX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-1PS5635DHX');
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
-            overflow-x: hidden;
-            padding-top: 80px;
-        }
-
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 247, 255, 0.98) 100%);
-            padding: 0.4rem 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            backdrop-filter: blur(20px);
-            border-bottom: 3px solid transparent;
-            background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 247, 255, 0.98) 100%),
-                              linear-gradient(90deg, #8B5CF6 0%, #6D28D9 50%, #8B5CF6 100%);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-            box-shadow: 0 8px 40px rgba(139, 92, 246, 0.15);
-            animation: slideDown 0.6s ease-out, headerGlow 3s ease-in-out infinite;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        header.hidden {
-            transform: translateY(-100%);
-        }
-
-        @keyframes headerGlow {
-            0%, 100% {
-                box-shadow: 0 8px 40px rgba(139, 92, 246, 0.15);
-            }
-            50% {
-                box-shadow: 0 8px 50px rgba(139, 92, 246, 0.25);
-            }
-        }
-
-        header:hover {
-            box-shadow: 0 12px 60px rgba(139, 92, 246, 0.3);
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            position: relative;
-            padding: 8px 12px;
-            transition: all 0.4s ease;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 8px;
-            padding: 2px;
-            background: linear-gradient(135deg, #8B5CF6, #6D28D9, #8B5CF6);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            animation: logoShine 3s ease-in-out infinite;
-            background-size: 200% 200%;
-        }
-
-        .logo:hover::before {
-            opacity: 1;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(109, 40, 217, 0.05) 100%);
-        }
-
-        .logo img {
-            height: 70px;
-            width: auto;
-            display: block;
-            transition: all 0.4s ease;
-        }
-
-        .logo:hover img {
-            filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4));
-        }
-
-        @keyframes logoShine {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            color: #1a1a1a;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 8px 4px;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #8B5CF6, #6D28D9);
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        nav a:hover {
-            color: #8B5CF6;
-            transform: translateY(-2px);
-        }
-
-        nav a:active {
-            transform: translateY(0);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            padding: 100px 0 60px 0;
-            background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -20%;
-            right: -10%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(109, 40, 217, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -15%;
-            left: -5%;
-            animation: float 10s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            50% {
-                transform: translate(20px, -20px) scale(1.1);
-            }
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #8B5CF6;
-            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.25);
-            margin: 0 auto 2rem;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(139, 92, 246, 0.4);
-            font-weight: 600;
-            font-size: 0.85rem;
-            animation: fadeInScale 0.8s ease-out 0.2s backwards;
-            transition: all 0.4s ease;
-        }
-
-        .hero-profile-image:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.35);
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            color: #1a1a1a;
-            letter-spacing: -2px;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
-
-        .hero-content h1 span {
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease infinite;
-            background-size: 200% 200%;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-content .subtext {
-            font-size: 1.25rem;
-            color: rgba(0, 0, 0, 0.65);
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.8s backwards;
-        }
-
-        .btn {
-            padding: 16px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
-            color: #ffffff;
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.25);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.35);
-        }
-
-        .btn-secondary {
-            background: #ffffff;
-            color: #1a1a1a;
-            border: 2px solid rgba(139, 92, 246, 0.2);
-        }
-
-        .btn-secondary:hover {
-            border-color: #8B5CF6;
-            color: #8B5CF6;
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
-            transform: translateY(-2px);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: #ffffff;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            color: #1a1a1a;
-            letter-spacing: -1px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: rgba(0, 0, 0, 0.6);
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 900px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .service-card {
-            background: #fafafa;
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.12);
-            border-color: rgba(139, 92, 246, 0.2);
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .service-card ul {
-            list-style: none;
-            margin-bottom: 2rem;
-            flex-grow: 1;
-        }
-
-        .service-card li {
-            padding: 10px 0;
-            color: rgba(0, 0, 0, 0.7);
-            font-size: 1.05rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .service-card li::before {
-            content: '✓';
-            color: #8B5CF6;
-            font-weight: bold;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .delivery {
-            font-weight: 600;
-            color: #8B5CF6;
-            font-size: 1rem;
-            background: rgba(139, 92, 246, 0.08);
-            padding: 8px 16px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card .btn {
-            width: 100%;
-            justify-content: center;
-            padding: 14px 32px;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 99;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
-        }
-
-        .back-to-top:active {
-            transform: translateY(-2px);
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 100px 0;
-            background: #f8f8f8;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .pricing-card {
-            background: #ffffff;
-            padding: 40px 35px;
-            border-radius: 20px;
-            border: 1px solid rgba(139, 92, 246, 0.15);
-            text-align: center;
-            transition: all 0.4s;
-            position: relative;
-        }
-
-        .pricing-card:hover {
-            border-color: #8B5CF6;
-            transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(139, 92, 246, 0.15);
-        }
-
-        .pricing-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .price {
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .price-note {
-            font-size: 0.9rem;
-            color: rgba(0, 0, 0, 0.5);
-            margin-bottom: 1.5rem;
-        }
-
-        .pricing-features {
-            text-align: left;
-            margin-bottom: 1.5rem;
-            list-style: none;
-        }
-
-        .pricing-features li {
-            padding: 8px 0;
-            color: rgba(0, 0, 0, 0.7);
-            font-size: 0.95rem;
-        }
-
-        /* Optional Add-Ons full-width box */
-        .pricing-addons {
-            max-width: 1200px;
-            margin: 25px auto 0;
-            padding: 0 20px;
-        }
-
-        .pricing-addons-inner {
-            background: #ffffff;
-            padding: 26px 28px;
-            border-radius: 16px;
-            border: 1px solid rgba(139, 92, 246, 0.12);
-            display: flex;
-            gap: 24px;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .pricing-addons-inner h3 {
-            font-size: 1.2rem;
-            margin: 0;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .pricing-addons-inner .pricing-features {
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .pricing-addons-inner { flex-direction: column; align-items: flex-start; }
-        }
-
-        .payment-terms {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%);
-            padding: 50px 40px;
-            border-radius: 20px;
-            margin-top: 3rem;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-        }
-
-        .payment-terms h4 {
-            font-size: 1.6rem;
-            margin-bottom: 2rem;
-            color: #1a1a1a;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .payment-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .payment-step {
-            text-align: center;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 16px;
-            border: 2px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.3s;
-        }
-
-        .payment-step:hover {
-            border-color: #8B5CF6;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.12);
-        }
-
-        .payment-step .step-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
-            color: #ffffff;
-            border-radius: 50%;
-            line-height: 50px;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .payment-step h5 {
-            font-size: 1.2rem;
-            color: #1a1a1a;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-
-        .payment-step p {
-            font-size: 1rem;
-            color: rgba(0, 0, 0, 0.7);
-            line-height: 1.6;
-        }
-
-        .payment-step .percentage {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 100px 0;
-            background: #ffffff;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .portfolio-item {
-            background: #ffffff;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.4s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(139, 92, 246, 0.12);
-            border-color: rgba(139, 92, 246, 0.2);
-        }
-
-        .portfolio-image {
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(139, 92, 246, 0.4);
-            font-weight: 600;
-            font-size: 0.85rem;
-            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
-        }
-
-        .portfolio-image img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .portfolio-info {
-            padding: 20px;
-        }
-
-        .portfolio-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.6rem;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .portfolio-info p {
-            color: rgba(0, 0, 0, 0.6);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .portfolio-info .btn {
-            padding: 9px 20px;
-            font-size: 0.85rem;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 100px 0;
-            background: #f8f8f8;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            cursor: pointer;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.15);
-            border-color: rgba(139, 92, 246, 0.3);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(139, 92, 246, 0.4);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
-
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background: #f8f8f8;
-        }
-
-        .about-content {
-            max-width: 850px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: rgba(0, 0, 0, 0.7);
-            margin-bottom: 2rem;
-        }
-
-        .profile-image-container {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #8B5CF6;
-            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            color: rgba(139, 92, 246, 0.4);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .trust-signals {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            text-align: center;
-            padding: 25px 20px;
-            background: #ffffff;
-            border-radius: 16px;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.3s;
-        }
-
-        .trust-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.1);
-            border-color: rgba(139, 92, 246, 0.2);
-        }
-
-        .trust-item i {
-            font-size: 2.5rem;
-            color: #8B5CF6;
-            margin-bottom: 1rem;
-        }
-
-        .trust-item p {
-            font-size: 0.95rem;
-            color: rgba(0, 0, 0, 0.8);
-            font-weight: 600;
-        }
-
-        /* Private Work Section */
-        .private-work {
-            padding: 60px 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: #ffffff;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .private-work::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -20%;
-            left: -10%;
-        }
-
-        .private-work p {
-            font-size: 1.15rem;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .private-work strong {
-            color: #8B5CF6;
-            font-weight: 700;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: #ffffff;
-        }
-
-        .contact-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            margin: 3rem 0;
-        }
-
-        .contact-row {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            padding: 28px 30px;
-            background: #ffffff;
-            border-radius: 16px;
-            border: 2px solid rgba(139, 92, 246, 0.08);
-            transition: all 0.4s;
-            min-width: 240px;
-            text-decoration: none;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-8px);
-            border-color: #8B5CF6;
-            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.15);
-        }
-
-        .contact-item i {
-            font-size: 3rem;
-            color: #8B5CF6;
-            transition: all 0.3s;
-        }
-
-        .contact-item:hover i {
-            transform: scale(1.1);
-        }
-
-        .contact-item .contact-label {
-            font-size: 1rem;
-            color: rgba(0, 0, 0, 0.6);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: -5px;
-        }
-
-        .contact-item .contact-value {
-            font-size: 1.15rem;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        /* removed serious-note styling as the note has been removed */
-
-        @media (max-width: 880px) {
-            .contact-row {
-                flex-direction: column;
-                align-items: center;
-            }
-            .contact-item {
-                width: 100%;
-                max-width: 400px;
-            }
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -20%;
-            right: -10%;
-            animation: float 10s ease-in-out infinite;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            display: block;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        /* Process Section */
-        .process {
-            padding: 100px 0;
-            background: #f8f8f8;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .process-step {
-            background: #ffffff;
-            padding: 35px 25px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .process-step:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.15);
-            border-color: #8B5CF6;
-        }
-
-        .process-step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #8B5CF6, #6D28D9);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
-        }
-
-        .process-step h4 {
-            font-size: 1.3rem;
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .process-step p {
-            font-size: 0.95rem;
-            color: rgba(0, 0, 0, 0.6);
-            line-height: 1.6;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 100px 0;
-            background: #ffffff;
-        }
-
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: #fafafa;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            border-color: rgba(139, 92, 246, 0.2);
-        }
-
-        .faq-question {
-            padding: 25px 30px;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            color: #8B5CF6;
-        }
-
-        .faq-question::after {
-            content: '+';
-            font-size: 2rem;
-            color: #8B5CF6;
-            font-weight: 300;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-question.active::after {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            padding: 0 30px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .faq-answer.active {
-            padding: 0 30px 25px 30px;
-            max-height: 500px;
-        }
-
-        .faq-answer p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: rgba(0, 0, 0, 0.7);
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -30%;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: float 12s ease-in-out infinite;
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-
-        .cta p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
-
-        .cta .btn {
-            font-size: 1.1rem;
-            padding: 18px 45px;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            padding: 50px 0;
-            border-top: 1px solid rgba(139, 92, 246, 0.2);
-        }
-
-        footer p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        footer .highlight {
-            color: #8B5CF6;
-        }
-
-        /* Responsive Design */
-
-        /* Tablet Screens */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0 30px;
-            }
-
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-
-            .services-grid,
-            .pricing-grid,
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* Mobile Landscape & Small Tablets */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            /* Mobile-specific animations */
-            @keyframes mobileSlideIn {
-                from {
-                    opacity: 0;
-                    transform: translateX(-20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-
-            @keyframes mobileFadeIn {
-                from {
-                    opacity: 0;
-                    transform: scale(0.95);
-                }
-                to {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-            }
-
-            /* Animate sections on mobile */
-            .service-card,
-            .pricing-card,
-            .portfolio-item {
-                animation: mobileSlideIn 0.6s ease-out;
-            }
-
-            .service-card:nth-child(1),
-            .pricing-card:nth-child(1),
-            .portfolio-item:nth-child(1) {
-                animation-delay: 0.1s;
-            }
-
-            .service-card:nth-child(2),
-            .pricing-card:nth-child(2),
-            .portfolio-item:nth-child(2) {
-                animation-delay: 0.2s;
-            }
-
-            .service-card:nth-child(3),
-            .pricing-card:nth-child(3),
-            .portfolio-item:nth-child(3) {
-                animation-delay: 0.3s;
-            }
-
-            .service-card:nth-child(4) {
-                animation-delay: 0.4s;
-            }
-
-            /* Mobile touch feedback */
-            .service-card:active,
-            .pricing-card:active,
-            .portfolio-item:active,
-            .contact-item:active,
-            .trust-item:active {
-                transform: scale(0.98);
-                transition: transform 0.1s ease;
-            }
-
-            .btn:active {
-                transform: scale(0.95);
-            }
-
-            /* Gallery items animate on mobile */
-            .gallery-item {
-                animation: mobileFadeIn 0.5s ease-out;
-            }
-
-            .gallery-item:nth-child(1) {
-                animation-delay: 0.1s;
-            }
-
-            .gallery-item:nth-child(2) {
-                animation-delay: 0.2s;
-            }
-
-            .gallery-item:nth-child(3) {
-                animation-delay: 0.3s;
-            }
-
-            .gallery-item:nth-child(4) {
-                animation-delay: 0.4s;
-            }
-
-            /* Contact cards animate */
-            .contact-item {
-                animation: mobileSlideIn 0.5s ease-out;
-            }
-
-            .contact-item:nth-child(1) {
-                animation-delay: 0.1s;
-            }
-
-            .contact-item:nth-child(2) {
-                animation-delay: 0.2s;
-            }
-
-            .contact-item:nth-child(3) {
-                animation-delay: 0.3s;
-            }
-
-            /* Payment steps animate */
-            .payment-step {
-                animation: mobileFadeIn 0.6s ease-out;
-            }
-
-            .payment-step:nth-child(1) {
-                animation-delay: 0.1s;
-            }
-
-            .payment-step:nth-child(2) {
-                animation-delay: 0.3s;
-            }
-
-            /* Section titles pulse in */
-            .section-title {
-                animation: mobileFadeIn 0.5s ease-out;
-            }
-
-            /* Trust items animate */
-            .trust-item {
-                animation: mobileSlideIn 0.5s ease-out;
-            }
-
-            .trust-item:nth-child(1) {
-                animation-delay: 0.1s;
-            }
-
-            .trust-item:nth-child(2) {
-                animation-delay: 0.2s;
-            }
-
-            /* Profile image bounce on mobile */
-            .profile-image {
-                animation: mobileFadeIn 0.8s ease-out;
-            }
-
-            /* Mobile tap highlights */
-            * {
-                -webkit-tap-highlight-color: rgba(139, 92, 246, 0.2);
-            }
-
-            /* Smooth scroll behavior on mobile */
-            html {
-                scroll-behavior: smooth;
-            }
-
-            /* Header Mobile */
-            header {
-                padding: 1rem 0;
-            }
-
-            .logo {
-                padding: 6px 10px;
-            }
-
-            .logo img {
-                height: 55px;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            nav a {
-                font-size: 0.85rem;
-                padding: 10px 16px;
-                background: rgba(139, 92, 246, 0.08);
-                backdrop-filter: blur(10px);
-                border-radius: 12px;
-                border: 1px solid rgba(139, 92, 246, 0.15);
-            }
-
-            nav a:hover {
-                background: rgba(139, 92, 246, 0.15);
-                border-color: rgba(139, 92, 246, 0.3);
-            }
-
-            nav a::after {
-                display: none;
-            }
-
-            /* Hero Mobile */
-            .hero {
-                min-height: 60vh;
-                padding: 80px 0 40px 0;
-            }
-
-            .hero-profile-image {
-                width: 120px;
-                height: 120px;
-                border-width: 4px;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.2rem;
-                letter-spacing: -1px;
-                margin-bottom: 1rem;
-            }
-
-            .hero-content .subtext {
-                font-size: 1.05rem;
-                margin-bottom: 2rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 0.8rem;
-                align-items: center;
-            }
-
-            .btn {
-                padding: 14px 32px;
-                width: 100%;
-                max-width: 300px;
-            }
-
-            /* Sections Mobile */
-            .services,
-            .pricing,
-            .portfolio,
-            .gallery,
-            .about,
-            .contact {
-                padding: 60px 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-            }
-
-            /* Services Mobile */
-            .services-grid,
-            .pricing-grid,
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .service-card,
-            .pricing-card,
-            .portfolio-item {
-                padding: 25px;
-            }
-
-            /* Payment Terms Mobile */
-            .payment-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .payment-terms {
-                padding: 35px 25px;
-            }
-
-            /* Gallery Mobile */
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            /* About Mobile */
-            .profile-image {
-                width: 150px;
-                height: 150px;
-            }
-
-            .about-content p {
-                font-size: 1.05rem;
-            }
-
-            .trust-signals {
-                gap: 15px;
-            }
-
-            .trust-item {
-                flex: 1 1 calc(50% - 15px);
-                min-width: 140px;
-            }
-
-            /* Contact Mobile */
-            .contact-methods {
-                gap: 20px;
-            }
-
-            .contact-item {
-                padding: 22px 20px;
-            }
-
-            /* Stats Mobile */
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            /* Process Mobile */
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
-
-            /* CTA Mobile */
-            .cta h2 {
-                font-size: 2rem;
-            }
-
-            .cta p {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* Small Mobile Screens */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            /* Header Extra Small */
-            header {
-                padding: 0.8rem 0;
-            }
-
-            header .container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .logo {
-                padding: 5px 8px;
-            }
-
-            .logo img {
-                height: 50px;
-            }
-
-            nav ul {
-                gap: 0.8rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav a {
-                font-size: 0.8rem;
-                padding: 8px 14px;
-                background: rgba(139, 92, 246, 0.08);
-                backdrop-filter: blur(10px);
-                border-radius: 10px;
-                border: 1px solid rgba(139, 92, 246, 0.15);
-            }
-
-            nav a:hover {
-                background: rgba(139, 92, 246, 0.15);
-                border-color: rgba(139, 92, 246, 0.3);
-            }
-
-            nav a::after {
-                display: none;
-            }
-
-            /* Hero Extra Small */
-            .hero {
-                min-height: auto;
-                padding: 70px 0 30px 0;
-            }
-
-            .hero-profile-image {
-                width: 100px;
-                height: 100px;
-                border-width: 3px;
-                margin-bottom: 1.2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 1.8rem;
-                letter-spacing: -0.5px;
-            }
-
-            .hero-content .subtext {
-                font-size: 0.95rem;
-                line-height: 1.6;
-            }
-
-            .btn {
-                padding: 12px 28px;
-                font-size: 0.9rem;
-            }
-
-            /* Sections Extra Small */
-            .services,
-            .pricing,
-            .portfolio,
-            .gallery,
-            .about,
-            .contact {
-                padding: 40px 0;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .section-subtitle {
-                font-size: 0.9rem;
-            }
-
-            /* Gallery Extra Small */
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            /* Trust Items Stack */
-            .trust-item {
-                flex: 1 1 100%;
-            }
-
-            /* Payment Terms Extra Small */
-            .payment-terms {
-                padding: 25px 20px;
-            }
-
-            .payment-step {
-                padding: 20px;
-            }
-
-            .payment-step .percentage {
-                font-size: 1.6rem;
-            }
-
-            .payment-step h5 {
-                font-size: 1.1rem;
-            }
-
-            /* Profile Image Extra Small */
-            .profile-image {
-                width: 120px;
-                height: 120px;
-            }
-
-            .about-content p {
-                font-size: 0.95rem;
-            }
-        }
-
-        /* Fix overflow on very small screens */
-        @media (max-width: 360px) {
-            .logo {
-                padding: 4px 6px;
-            }
-
-            .logo img {
-                height: 45px;
-            }
-
-            nav ul {
-                gap: 0.7rem;
-            }
-
-            nav a {
-                font-size: 0.8rem;
-            }
-
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.4rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chizim Victory Felix — Biochemist & Developer</title>
+  <meta name="description" content="PhD Candidate in Biochemistry, Protein Engineer, and Frontend Developer. Seeking research roles in pharma, biotech, and academia.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chizim Victory Felix — Biochemist & Developer">
+  <meta property="og:description" content="PhD Candidate in Cancer Biomarker Research | Protein Engineer | Web Developer">
+  <meta property="og:image" content="https://mrchizim.vercel.app/assets/images/THUMBNAIL.png">
+  <meta property="og:url" content="https://mrchizim.vercel.app">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/HEAD.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PS5635DHX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1PS5635DHX');
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── Reset ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #F9F8F6;
+      --surface:     #FFFFFF;
+      --border:      #E5E3DE;
+      --text:        #18181B;
+      --muted:       #71717A;
+      --accent:      #2563EB;
+      --accent-lt:   #EFF6FF;
+      --accent-mid:  #BFDBFE;
+      --green:       #059669;
+      --green-bg:    #ECFDF5;
+      --sans:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --serif:       'Lora', Georgia, serif;
+      --r:           12px;
+      --shadow-xs:   0 1px 2px rgba(0,0,0,0.05);
+      --shadow-sm:   0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow:      0 4px 16px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+      --shadow-lg:   0 16px 48px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── Scroll reveal ───────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.07s; }
+    .d2 { transition-delay: 0.14s; }
+    .d3 { transition-delay: 0.21s; }
+    .d4 { transition-delay: 0.28s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ─── Nav ─────────────────────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(249,248,246,0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #nav.scrolled {
+      border-color: var(--border);
+      box-shadow: var(--shadow-xs);
+    }
+    .nav-wrap {
+      max-width: 1120px; margin: 0 auto; padding: 0 32px;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 0.92rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text); }
+    .nav-logo em { font-style: normal; color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500; color: var(--muted);
+      position: relative; transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1.5px; background: var(--accent);
+      transition: width 0.25s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text); }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+    .nav-cv {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em;
+      padding: 7px 16px; border-radius: 8px;
+      background: var(--text); color: #fff;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cv:hover { background: var(--accent); transform: translateY(-1px); }
+    .ham {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .ham span { display: block; width: 20px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.28s; }
+    .mob-menu {
+      display: none; flex-direction: column;
+      background: var(--surface); border-top: 1px solid var(--border);
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { padding: 13px 24px; font-size: 0.88rem; font-weight: 500; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .mob-menu a:last-child { border: none; }
+
+    /* ─── Layout ──────────────────────────────────────── */
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+    section { padding: 88px 0; }
+    .lbl {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    }
+    .lbl::before { content: ''; width: 18px; height: 1.5px; background: var(--accent); }
+    h2.sh {
+      font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 10px;
+    }
+    p.sub { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 520px; margin-bottom: 52px; }
+
+    /* ─── Hero ────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh; display: flex; align-items: center;
+      padding: 110px 0 72px; background: var(--bg); position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; top: -120px; right: -80px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: ''; position: absolute; bottom: -80px; left: -80px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(5,150,105,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    /* subtle grid lines */
+    #hero .hero-grid-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(37,99,235,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 80px; align-items: center; position: relative;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.11em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+      background: var(--accent-lt); border: 1px solid var(--accent-mid);
+      padding: 5px 14px 5px 10px; border-radius: 99px;
+    }
+    .dot-pulse {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+      animation: dotpulse 2.2s ease-in-out infinite;
+    }
+    @keyframes dotpulse {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.6); opacity: 0.6; }
+    }
+    /* Mobile avatar */
+    .hero-avatar-mob {
+      align-items: center; gap: 14px; margin-bottom: 22px;
+    }
+    .hero-avatar-img {
+      width: 64px; height: 64px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+      border: 2.5px solid var(--accent-mid); box-shadow: 0 2px 12px rgba(37,99,235,0.15);
+      background: linear-gradient(135deg, #EFF6FF, #ECFDF5);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-avatar-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .hero-avatar-label { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+    .hero-avatar-label strong { color: var(--text); font-size: 0.88rem; display: block; }
+    .hero-name {
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1.02;
+      color: var(--text); margin-bottom: 12px;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-ttl {
+      font-family: var(--serif); font-size: clamp(1rem, 1.8vw, 1.25rem);
+      font-weight: 400; font-style: italic; color: var(--muted);
+      margin-bottom: 26px; line-height: 1.55;
+    }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 28px; }
+    .hero-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.72rem; font-weight: 600; padding: 5px 12px;
+      border-radius: 99px; background: var(--surface);
+      border: 1px solid var(--border); color: var(--muted);
+    }
+    .hero-chip svg { color: var(--accent); }
+    .hero-bio {
+      font-size: 0.975rem; line-height: 1.9; color: var(--muted);
+      max-width: 540px; margin-bottom: 36px;
+    }
+    .hero-bio strong { color: var(--text); font-weight: 600; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.875rem; font-weight: 600; padding: 11px 22px;
+      border-radius: 9px; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      box-shadow: 0 2px 10px rgba(37,99,235,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+    }
+    .btn-primary:hover { background: #1D4ED8; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,0.35); }
+    .btn-ghost { background: var(--surface); color: var(--text); border: 1.5px solid var(--border); box-shadow: var(--shadow-xs); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .hero-divider { width: 40px; height: 3px; background: linear-gradient(90deg, var(--accent), var(--green)); border-radius: 3px; margin-bottom: 20px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-meta-i { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--muted); font-weight: 500; }
+    .hero-meta-i svg { color: var(--accent); flex-shrink: 0; }
+
+    /* Photo card */
+    .photo-card { position: relative; }
+    .photo-frame {
+      width: 100%; aspect-ratio: 3/4; border-radius: 24px;
+      overflow: hidden; background: linear-gradient(135deg, #EFF6FF 0%, #ECFDF5 100%);
+      border: 1px solid var(--border); box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .photo-fallback { text-align: center; color: var(--muted); padding: 32px; }
+    .photo-fallback svg { margin: 0 auto 12px; opacity: 0.25; }
+    .photo-fallback p { font-size: 0.75rem; }
+    .badge {
+      position: absolute; bottom: -14px; left: -14px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 12px 16px;
+      box-shadow: var(--shadow); display: flex; align-items: center; gap: 10px;
+    }
+    .badge-icon {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--accent-lt); display: flex; align-items: center;
+      justify-content: center; color: var(--accent); flex-shrink: 0;
+    }
+    .badge-txt { font-size: 0.76rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .badge-sub { font-size: 0.68rem; color: var(--muted); }
+    .badge2 {
+      position: absolute; top: 16px; right: -18px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 10px 14px;
+      box-shadow: var(--shadow); display: flex; align-items: center; gap: 7px;
+      font-size: 0.74rem; font-weight: 600; color: var(--text);
+    }
+    .pip { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+
+    /* ─── Stats bar ───────────────────────────────────── */
+    #stats { padding: 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stats-row { display: flex; }
+    .stat {
+      flex: 1; padding: 28px 20px; text-align: center;
+      border-right: 1px solid var(--border); transition: background 0.2s;
+    }
+    .stat:last-child { border-right: none; }
+    .stat:hover { background: var(--accent-lt); }
+    .stat-n { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+    .stat-l { font-size: 0.72rem; font-weight: 500; color: var(--muted); letter-spacing: 0.03em; }
+
+    /* ─── About ───────────────────────────────────────── */
+    #about { background: var(--bg); }
+    .about-grid { display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start; }
+    .about-body p { font-size: 0.975rem; line-height: 1.85; color: var(--muted); margin-bottom: 18px; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body strong { color: var(--text); font-weight: 600; }
+    .aside-cards { display: flex; flex-direction: column; gap: 12px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 18px; box-shadow: var(--shadow-xs);
+    }
+    .card-ttl {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+    }
+    .card-body { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    .card-body strong { color: var(--text); font-weight: 600; }
+    .award-card {
+      background: linear-gradient(135deg, #EFF6FF 0%, #ECFDF5 100%);
+      border: 1px solid var(--accent-mid); border-radius: var(--r); padding: 18px;
+    }
+    .award-pill {
+      display: inline-block; font-size: 0.66rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: var(--accent); color: #fff; padding: 3px 10px;
+      border-radius: 99px; margin-bottom: 8px;
+    }
+    .award-ttl { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .award-body { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─── Research ────────────────────────────────────── */
+    #research { background: var(--surface); }
+    .research-list { display: flex; flex-direction: column; gap: 16px; }
+    .rc {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 28px 32px;
+      display: grid; grid-template-columns: 108px 1fr; gap: 24px;
+      align-items: start; transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    }
+    .rc:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: var(--accent-mid); }
+    .rc-date { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.05em; color: var(--accent); padding-top: 3px; }
+    .rc-badge {
+      display: inline-block; font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 99px; margin-bottom: 8px;
+    }
+    .rc-badge.phd { background: var(--accent-lt); color: var(--accent); }
+    .rc-badge.msc { background: var(--green-bg); color: var(--green); }
+    .rc-ttl { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .rc-inst { font-size: 0.82rem; font-weight: 500; color: var(--muted); margin-bottom: 12px; }
+    .rc-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .rc-bullets li { font-size: 0.875rem; color: var(--muted); line-height: 1.65; padding-left: 14px; position: relative; }
+    .rc-bullets li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .tech-box { margin-top: 40px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 24px 28px; }
+    .tech-lbl { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .tech-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tp {
+      font-size: 0.78rem; font-weight: 500; color: var(--text);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 99px; padding: 4px 13px; transition: all 0.18s;
+    }
+    .tp:hover { background: var(--accent-lt); border-color: var(--accent-mid); color: var(--accent); }
+
+    /* ─── Projects ────────────────────────────────────── */
+    #projects { background: var(--bg); }
+    .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .proj-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    }
+    .proj-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: var(--accent-mid); }
+    .proj-thumb { width: 100%; height: 180px; overflow: hidden; background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); position: relative; display: flex; align-items: center; justify-content: center; color: var(--accent-mid); }
+    .proj-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .proj-card:hover .proj-thumb img { transform: scale(1.05); }
+    .proj-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .proj-status { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; margin-bottom: 8px; }
+    .s-live { background: var(--green-bg); color: var(--green); }
+    .s-wip  { background: #FEF9C3; color: #92400E; }
+    .s-nda  { background: #F4F4F5; color: var(--muted); }
+    .proj-ttl { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .proj-role { font-size: 0.76rem; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
+    .proj-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 14px; }
+    .proj-stack { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+    .st { font-size: 0.7rem; font-weight: 500; color: var(--muted); background: var(--bg); border: 1px solid var(--border); padding: 2px 9px; border-radius: 6px; }
+    .proj-link { display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; font-weight: 600; color: var(--accent); transition: gap 0.18s; }
+    .proj-link:hover { gap: 9px; }
+
+    /* ─── Experience ──────────────────────────────────── */
+    #experience { background: var(--surface); }
+    .tl { position: relative; padding-left: 24px; display: flex; flex-direction: column; }
+    .tl::before {
+      content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px;
+      width: 2px; background: linear-gradient(to bottom, var(--accent), var(--border)); border-radius: 2px;
+    }
+    .tl-item { position: relative; padding: 0 0 32px 28px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute; left: -24px; top: 5px;
+      width: 12px; height: 12px; border-radius: 50%;
+      border: 2px solid var(--surface); box-shadow: 0 0 0 2px var(--accent);
+      background: var(--accent); transition: box-shadow 0.2s, background 0.2s;
+    }
+    .tl-item:hover .tl-dot { background: var(--text); box-shadow: 0 0 0 2px var(--text); }
+    .tl-dot.dim { background: var(--muted); box-shadow: 0 0 0 2px var(--muted); }
+    .tl-per { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+    .tl-role { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .tl-org { font-size: 0.82rem; font-weight: 500; color: var(--muted); margin-bottom: 10px; }
+    .tl-ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .tl-ul li { font-size: 0.86rem; color: var(--muted); line-height: 1.65; padding-left: 13px; position: relative; }
+    .tl-ul li::before { content: ''; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: var(--border); }
+
+    /* ─── Skills ──────────────────────────────────────── */
+    #skills { background: var(--bg); }
+    .sk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .sk-grp {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 24px; transition: box-shadow 0.2s;
+    }
+    .sk-grp:hover { box-shadow: var(--shadow); }
+    .sk-grp-ttl {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .sk-grp-ttl::before { content: ''; width: 12px; height: 2px; background: var(--accent); border-radius: 2px; }
+    .sk-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .sp {
+      font-size: 0.78rem; font-weight: 500; padding: 4px 11px;
+      border-radius: 7px; background: var(--bg); border: 1px solid var(--border);
+      color: var(--text); transition: all 0.15s;
+    }
+    .sp:hover { background: var(--accent-lt); border-color: var(--accent-mid); color: var(--accent); }
+
+    /* ─── Education ───────────────────────────────────── */
+    #education { background: var(--surface); }
+    .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+    .edu-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 24px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .edu-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .edu-ico { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-lt); display: flex; align-items: center; justify-content: center; color: var(--accent); }
+    .edu-deg { font-size: 0.95rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .edu-uni { font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+    .edu-yr { font-size: 0.75rem; color: var(--muted); font-weight: 500; }
+    .edu-thesis { font-size: 0.8rem; color: var(--muted); line-height: 1.6; border-top: 1px solid var(--border); padding-top: 10px; margin-top: 2px; }
+    .edu-thesis b { color: var(--text); }
+    .certs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cert {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 9px; padding: 9px 14px;
+      font-size: 0.8rem; font-weight: 500; color: var(--text); transition: all 0.2s;
+    }
+    .cert svg { color: var(--accent); }
+    .cert:hover { border-color: var(--accent-mid); background: var(--accent-lt); color: var(--accent); }
+
+    /* ─── Contact ─────────────────────────────────────── */
+    #contact { background: var(--bg); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-left h3 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 14px; }
+    .contact-left p { font-size: 0.93rem; color: var(--muted); line-height: 1.8; margin-bottom: 8px; }
+    .contact-left p strong { color: var(--text); }
+    .ref-box { margin-top: 20px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+    .ref-box strong { color: var(--text); }
+    .clinks { display: flex; flex-direction: column; gap: 10px; }
+    .clink {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 18px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: var(--r);
+      transition: all 0.2s; color: var(--text);
+    }
+    .clink:hover { border-color: var(--accent-mid); background: var(--accent-lt); transform: translateX(4px); box-shadow: var(--shadow-xs); }
+    .clink-ico { width: 38px; height: 38px; border-radius: 9px; background: var(--accent-lt); display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0; transition: background 0.2s; }
+    .clink:hover .clink-ico { background: var(--accent); color: #fff; }
+    .clink-lbl { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+    .clink-val { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* ─── Footer ──────────────────────────────────────── */
+    footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px 0; }
+    .foot-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .foot-name { font-size: 0.875rem; font-weight: 700; color: #fff; }
+    .foot-links { display: flex; gap: 20px; list-style: none; }
+    .foot-links a { font-size: 0.78rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .foot-links a:hover { color: #fff; }
+    .foot-copy { font-size: 0.75rem; }
+
+    /* ─── Mobile avatar ──────────────────────────────────── */
+    .hero-avatar-mob { display: none; }
+
+    /* ─── Responsive ──────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .proj-grid { grid-template-columns: repeat(2, 1fr); }
+      .sk-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .photo-card { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .rc { grid-template-columns: 1fr; }
+      .rc-date { padding-top: 0; margin-bottom: 6px; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .stats-row { flex-wrap: wrap; }
+      .stat { flex: 1 1 33%; }
+      .foot-inner { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 20px; }
+      section { padding: 60px 0; }
+      .nav-wrap { padding: 0 20px; }
+      .nav-links, .nav-cv { display: none; }
+      .ham { display: flex; }
+      /* 2-column project grid on mobile */
+      .proj-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .proj-thumb { height: 120px; }
+      .proj-body { padding: 13px; }
+      .proj-ttl { font-size: 0.88rem; }
+      .proj-desc { font-size: 0.76rem; }
+      .proj-stack { display: none; }
+      .sk-grid { grid-template-columns: 1fr; }
+      .stat { flex: 1 1 50%; }
+      .badge, .badge2 { display: none; }
+      /* Show avatar icon in hero on mobile */
+      .hero-avatar-mob { display: flex; }
+    }
+    @media (max-width: 400px) {
+      .stat { flex: 1 1 100%; border-right: none; }
+      .proj-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <a href="#home" class="logo">
-                <img src="assets/images/HEAD.png" alt="Chizim Victory Felix Logo">
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#portfolio">Samples</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <img src="assets/images/me2.jpg" alt="Chizim Victory Felix" class="hero-profile-image">
-                <h1>Hi, I'm <span>Chizim Victory Felix</span></h1>
-                <p class="subtext">Scientist, Founder & Frontend Developer. I hold a Biochemistry MSc from Uppsala University, currently pursuing my PhD at Rivers State University. I'm also the Founder & CEO of Sirius Jobs, and I build premium frontend only websites for high-profile individuals and businesses.</p>
-                <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">About Me</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Premium Services</h2>
-            <p class="section-subtitle">Bespoke websites designed for discerning clients</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Personal Website</h3>
-                    <ul>
-                        <li>Professional biography</li>
-                        <li>Career & achievements highlight</li>
-                        <li>Image gallery</li>
-                        <li>Social media integration</li>
-                        <li>Contact button</li>
-                        <li>Fully mobile optimized</li>
-                    </ul>
-                    <p class="delivery">Delivery: 5–7 days</p>
-                    <a href="#contact" class="btn btn-primary">Select Personal Website</a>
-                </div>
-                <div class="service-card">
-                    <h3>Family Website</h3>
-                    <ul>
-                        <li>Multiple family profiles</li>
-                        <li>Family history & legacy section</li>
-                        <li>Shared image gallery</li>
-                        <li>Private or public access option</li>
-                        <li>Fully mobile optimized</li>
-                    </ul>
-                    <p class="delivery">Delivery: 10–15 days</p>
-                    <a href="#contact" class="btn btn-primary">Select Family Website</a>
-                </div>
-                <div class="service-card">
-                    <h3>Business Website</h3>
-                    <ul>
-                        <li>Business details & information</li>
-                        <li>Product/service showcase</li>
-                        <li>Professional image gallery</li>
-                        <li>Contact information & forms</li>
-                        <li>SEO optimized</li>
-                        <li>Fully mobile responsive</li>
-                    </ul>
-                    <p class="delivery">Fee: ₦500,000</p>
-                    <a href="#contact" class="btn btn-primary">Select Business Website</a>
-                </div>
-                <div class="service-card">
-                    <h3>Financial Tracker (Custom)</h3>
-                    <ul>
-                        <li>Revenue tracking system</li>
-                        <li>Expense management</li>
-                        <li>Customized to your business</li>
-                        <li>Secure & private</li>
-                        <li>Web-based application</li>
-                    </ul>
-                    <p class="delivery">Pricing on consultation</p>
-                    <a href="#contact" class="btn btn-primary">Request Financial Tracker</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Investment</h2>
-            <p class="section-subtitle">Transparent pricing for premium quality</p>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Personal Website</h3>
-                    <div class="price">₦150,000</div>
-                    <p class="price-note">(depending on complexity)</p>
-                </div>
-                <div class="pricing-card">
-                    <h3>Business Website</h3>
-                    <div class="price">₦500,000</div>
-                    <p class="price-note">(depending on complexity)</p>
-                </div>
-                <div class="pricing-card">
-                    <h3>Family Website</h3>
-                    <div class="price">₦300,000</div>
-                    <p class="price-note">Complete family legacy platform</p>
-                </div>
-            </div>
-
-            <!-- Optional Add-Ons (full-width) -->
-            <div class="pricing-addons">
-                <div class="pricing-addons-inner">
-                    <h3>Optional Add-Ons</h3>
-                    <ul class="pricing-features">
-                        <li><strong>Domain & SSL Certificate:</strong>&nbsp;₦60,000 – ₦70,000/year<br><span style="font-size: 0.85rem; color: rgba(0,0,0,0.5);">(Not compulsory)</span></li>
-                        <li><strong>Extra Revisions:</strong>&nbsp;₦15,000 per revision</li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-            <div class="payment-terms">
-                <h4>Payment Terms</h4>
-                <div class="payment-grid">
-                    <div class="payment-step">
-                        <div class="step-number">1</div>
-                        <div class="percentage">50%</div>
-                        <h5>Before Work Starts</h5>
-                        <p>Initial payment to begin your project</p>
-                    </div>
-                    <div class="payment-step">
-                        <div class="step-number">2</div>
-                        <div class="percentage">50%</div>
-                        <h5>After Delivery</h5>
-                        <p>Final payment upon project completion</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Sample Work</h2>
-            <p class="section-subtitle">Proven excellence in web design</p>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <a class="portfolio-image" href="https://sirius-jobs.vercel.app/" target="_blank" rel="noopener">
-                        <img src="assets/images/thumbnailsirius.png" alt="Sirius Jobs demo thumbnail">
-                    </a>
-                    <div class="portfolio-info">
-                        <h3>Corporate Website</h3>
-                        <p>Sirius Jobs - Full recruitment platform</p>
-                        <a href="https://sirius-jobs.vercel.app/" target="_blank" class="btn btn-primary">View Demo</a>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <a class="portfolio-image" href="https://ghmi.vercel.app" target="_blank" rel="noopener">
-                        <img src="assets/images/thumbnail-ghmi.png" alt="GHMI church demo thumbnail">
-                    </a>
-                    <div class="portfolio-info">
-                        <h3>Church Website</h3>
-                        <p>GHMI - Faith-based platform demo with events</p>
-                        <a href="https://ghmi.vercel.app" target="_blank" class="btn btn-primary">View Demo</a>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <a class="portfolio-image" href="#home">
-                        <img src="assets/images/THUMBNAIL.png" alt="Personal website demo thumbnail">
-                    </a>
-                    <div class="portfolio-info">
-                        <h3>Personal Website</h3>
-                        <p>This portfolio — professional personal website</p>
-                        <a href="#home" class="btn btn-primary">View Demo</a>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <a class="portfolio-image" href="https://felix-family.vercel.app" target="_blank" rel="noopener">
-                        <img src="Fam.jpeg" alt="Felix Family website demo thumbnail">
-                    </a>
-                    <div class="portfolio-info">
-                        <h3>Family Website</h3>
-                        <p>Felix Family - Premium family legacy platform</p>
-                        <a href="https://felix-family.vercel.app" target="_blank" class="btn btn-primary">View Demo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2 class="section-title">Gallery Feature Example</h2>
-            <p class="section-subtitle">Beautiful image galleries can be included in your website</p>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="assets/images/me1.jpg" alt="Chizim Victory Felix">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/me4.jpg" alt="Chizim Victory Felix">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/me5.jpg" alt="Chizim Victory Felix">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/me6.jpg" alt="Chizim Victory Felix">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About</h2>
-            <div class="about-content">
-                <div class="profile-image-container">
-                    <img src="assets/images/me3.jpg" alt="Chizim Victory Felix" class="profile-image">
-                </div>
-                <p>I am a scientist, founder and frontend developer with over 4 years of hands-on experience designing clean, professional static websites.</p>
-                <p>I hold a biochemistry MSc from Uppsala University and am currently a PhD researcher in mitochondrial dysfunction and breast cancer. I am the Founder & CEO of Sirius Jobs, and I have personally designed and built corporate, faith-based, and personal websites.</p>
-                <p>I specialize in high-end personal and family websites for individuals who value discretion, speed, and premium presentation.</p>
-
-                <div class="trust-signals">
-                    <div class="trust-item">
-                        <i class="fas fa-building"></i>
-                        <p>Built Real Corporate Platforms</p>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-graduation-cap"></i>
-                        <p>International Academic Background</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Private Work Section -->
-    <section class="private-work">
-        <div class="container">
-            <p><strong>Private Client Work:</strong> Built a private revenue and expense financial tracking web application for a business client (NDA protected).</p>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">4+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">15+</span>
-                    <span class="stat-label">Projects Delivered</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Client Satisfaction</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process">
-        <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">Simple, transparent process from start to finish</p>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="process-step-number">1</div>
-                    <h4>Consultation</h4>
-                    <p>We discuss your vision, requirements, and preferences in detail</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-step-number">2</div>
-                    <h4>Design</h4>
-                    <p>I create a custom design tailored to your brand and style</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-step-number">3</div>
-                    <h4>Development</h4>
-                    <p>Your website is built with clean code and attention to detail</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-step-number">4</div>
-                    <h4>Delivery</h4>
-                    <p>Final review, revisions, and handover of your premium website</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Everything you need to know</p>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">How long does it take to build a website?</div>
-                    <div class="faq-answer">
-                        <p>Personal websites typically take 5-7 days, family websites 10-15 days, and business websites vary depending on complexity. I prioritize quality while maintaining efficient timelines.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Do I need technical knowledge to manage my website?</div>
-                    <div class="faq-answer">
-                        <p>Not at all! I build user-friendly websites that are easy to manage. I'll provide you with all the guidance you need to make simple updates, and I'm always available for support.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">What if I need revisions?</div>
-                    <div class="faq-answer">
-                        <p>Your package includes standard revisions during the development process. Additional revisions after delivery are available at ₦15,000 per revision to ensure your complete satisfaction.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Will my website work on mobile devices?</div>
-                    <div class="faq-answer">
-                        <p>Absolutely! All websites I build are fully responsive and optimized for mobile, tablet, and desktop devices. Your site will look stunning on any screen size.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Do you provide hosting and domain services?</div>
-                    <div class="faq-answer">
-                        <p>Yes! Domain and SSL certificate services are available as an optional add-on for ₦60,000 - ₦70,000/year. This is not compulsory, and you can choose your own hosting provider if preferred.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Build Your Premium Website?</h2>
-                <p>Let's create something exceptional together. Get in touch today to discuss your project.</p>
-                <a href="#contact" class="btn btn-primary">Start Your Project</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Let's discuss your premium website</p>
-            <div class="contact-content">
-                <div class="contact-methods">
-                    <div class="contact-row">
-                        <a href="https://wa.me/2347044470559" class="contact-item" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            <span class="contact-label">WhatsApp</span>
-                            <span class="contact-value">+234 704 447 0559</span>
-                        </a>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span class="contact-label">Phone</span>
-                            <span class="contact-value">+234 704 447 0559</span>
-                        </div>
-                        <a href="https://instagram.com/Tired_chizim" class="contact-item" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                            <span class="contact-label">Instagram</span>
-                            <span class="contact-value">@Tired_chizim</span>
-                        </a>
-                    </div>
-                    <a href="mailto:chizimvictory@gmail.com" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value">chizimvictory@gmail.com</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p><strong>Chizim Victory Felix</strong></p>
-            <p class="highlight">Scientist, Founder & Frontend Developer</p>
-            <p>Nigeria</p>
-            <p style="margin-top: 2rem;">&copy; 2025 Chizim Victory Felix. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-wrap">
+    <a href="#hero" class="nav-logo">Chizim Victory <em>Felix</em></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="Chizim_Felix_CV_Final_Updated.pdf" target="_blank" class="nav-cv">Download CV</a>
+    <button class="ham" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
     </button>
+  </div>
+  <div class="mob-menu" id="mob">
+    <a href="#about" onclick="closeMob()">About</a>
+    <a href="#research" onclick="closeMob()">Research</a>
+    <a href="#projects" onclick="closeMob()">Projects</a>
+    <a href="#experience" onclick="closeMob()">Experience</a>
+    <a href="#skills" onclick="closeMob()">Skills</a>
+    <a href="#contact" onclick="closeMob()">Contact</a>
+    <a href="Chizim_Felix_CV_Final_Updated.pdf" target="_blank">Download CV ↗</a>
+  </div>
+</nav>
 
-    <script>
-        // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow reveal">
+          <span class="dot-pulse"></span>
+          Open to research &amp; remote roles
+        </div>
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+        <!-- Mobile avatar — hidden on desktop via CSS -->
+        <div class="hero-avatar-mob reveal d1">
+          <div class="hero-avatar-img">
+            <img src="assets/images/me2.jpg" alt="Chizim Victory Felix"
+              onerror="this.style.display='none'">
+          </div>
+          <div class="hero-avatar-label">
+            <strong>Chizim Victory Felix</strong>
+            PhD Candidate · Biochemist · Developer
+          </div>
+        </div>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Observe elements for scroll animations
-            const animatedElements = document.querySelectorAll('.service-card, .pricing-card, .portfolio-item, .process-step, .faq-item, .trust-item, .stat-item');
-            animatedElements.forEach(el => {
-                el.classList.add('fade-in');
-                observer.observe(el);
-            });
+        <h1 class="hero-name reveal d1">Chizim<br>Victory <span>Felix</span></h1>
+        <p class="hero-ttl reveal d2">PhD Candidate in Biochemistry &amp; Frontend Developer</p>
 
-            // FAQ Accordion functionality
-            const faqQuestions = document.querySelectorAll('.faq-question');
+        <div class="hero-chips reveal d2">
+          <span class="hero-chip">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v11"/></svg>
+            Cancer Biomarker Research
+          </span>
+          <span class="hero-chip">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            Protein Engineering
+          </span>
+          <span class="hero-chip">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
+            ARTEMIS Fellow · Max Planck 2026
+          </span>
+        </div>
 
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', function() {
-                    const answer = this.nextElementSibling;
-                    const isActive = this.classList.contains('active');
+        <p class="hero-bio reveal d3">
+          Trained biochemist investigating <strong>mitochondrial dysfunction and oxidative stress</strong>
+          as early breast-cancer biomarkers. MSc from <strong>Uppsala University, Sweden</strong>.
+          Selected <strong>ARTEMIS Fellow, Max Planck Society 2026–27</strong>.
+          Also a self-taught web developer and startup founder — equally at home at the lab bench and the code editor.
+        </p>
+        <div class="hero-actions reveal d4">
+          <a href="#research" class="btn btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View Research
+          </a>
+          <a href="Chizim_Felix_CV_Final_Updated.pdf" target="_blank" class="btn btn-ghost">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+        <div class="hero-divider reveal d4"></div>
+        <div class="hero-meta reveal d4">
+          <span class="hero-meta-i">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Port Harcourt, Nigeria
+          </span>
+          <span class="hero-meta-i">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Open to relocation · Europe
+          </span>
+          <span class="hero-meta-i">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            English (Native) · Spanish (Beginner)
+          </span>
+        </div>
+      </div>
 
-                    // Close all FAQs
-                    faqQuestions.forEach(q => {
-                        q.classList.remove('active');
-                        q.nextElementSibling.classList.remove('active');
-                    });
+      <!-- Photo -->
+      <div class="photo-card reveal d2">
+        <div class="photo-frame">
+          <img src="assets/images/me2.jpg" alt="Chizim Victory Felix"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <div class="photo-fallback" style="display:none">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <p>Photo</p>
+          </div>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div>
+            <div class="badge-txt">ARTEMIS Fellow</div>
+            <div class="badge-sub">Max Planck Society · 2026–27</div>
+          </div>
+        </div>
+        <div class="badge2">
+          <span class="pip"></span>Uppsala University MSc
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    // If this wasn't active, open it
-                    if (!isActive) {
-                        this.classList.add('active');
-                        answer.classList.add('active');
-                    }
-                });
-            });
-            
+<!-- STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat reveal"><div class="stat-n">10+</div><div class="stat-l">Years in Science</div></div>
+      <div class="stat reveal d1"><div class="stat-n">3</div><div class="stat-l">Degrees Earned</div></div>
+      <div class="stat reveal d2"><div class="stat-n">&gt;90%</div><div class="stat-l">Protein Purity</div></div>
+      <div class="stat reveal d3"><div class="stat-n">3×</div><div class="stat-l">E.coli Yield Gain</div></div>
+      <div class="stat reveal d4"><div class="stat-n">5+</div><div class="stat-l">Web Projects Shipped</div></div>
+    </div>
+  </div>
+</section>
 
-            // Header hide/show on scroll
-            const header = document.querySelector('header');
-            let lastScrollTop = 0;
-            const scrollThreshold = 100;
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <p class="lbl reveal">About</p>
+        <h2 class="sh reveal">Scientist.<br>Builder.<br>Both.</h2>
+        <div class="about-body">
+          <p class="reveal">
+            I'm a trained biochemist with a demonstrated track record in <strong>research, protein engineering,
+            and molecular biology</strong>. Currently pursuing PhD research investigating mitochondrial dysfunction
+            and oxidative stress as early detection biomarkers for breast cancer in Nigerian women — research
+            with real diagnostic impact in resource-limited clinical settings.
+          </p>
+          <p class="reveal">
+            I hold an MSc from <strong>Uppsala University, Sweden</strong>, where I worked independently on
+            protein engineering — achieving &gt;90% purity through multi-step purification, optimizing E. coli
+            expression for a 3-fold yield improvement, and characterizing full kinetic profiles.
+            I've been selected as an <strong>ARTEMIS Fellow by the Max Planck Society</strong> for a
+            funded research stay in Germany in 2026–27.
+          </p>
+          <p class="reveal">
+            Alongside my science career, I'm a self-taught frontend developer and founder of
+            <strong>Sirius Jobs</strong>. I bring the same systematic rigour I apply in the lab to every
+            line of code I write.
+          </p>
+          <p class="reveal">
+            Seeking research roles in <strong>pharmaceutical, biotechnology, or academic environments
+            in Europe</strong> — and open to remote web development opportunities.
+          </p>
+        </div>
+      </div>
 
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      <div class="aside-cards">
+        <div class="award-card reveal">
+          <span class="award-pill">Fellowship 2026–27</span>
+          <div class="award-ttl">ARTEMIS Mentorship Programme — Max Planck Society</div>
+          <div class="award-body">Selected as one of a small cohort of African doctoral researchers for a year-long mentorship including a funded research stay in Germany with a Max Planck Institute mentor.</div>
+        </div>
+        <div class="card reveal d1">
+          <div class="card-ttl">Currently</div>
+          <div class="card-body"><strong>PhD Researcher</strong> — Cancer Biomarker Discovery<br>Rivers State University · 2025–Present</div>
+        </div>
+        <div class="card reveal d2">
+          <div class="card-ttl">Education</div>
+          <div class="card-body"><strong>MSc</strong> — Uppsala University, Sweden<br><strong>BSc</strong> — University of Port Harcourt</div>
+        </div>
+        <div class="card reveal d3">
+          <div class="card-ttl">Also</div>
+          <div class="card-body"><strong>Founder &amp; CEO</strong> — Sirius Jobs<br>Frontend developer &amp; startup builder</div>
+        </div>
+        <div class="card reveal d4">
+          <div class="card-ttl">References</div>
+          <div class="card-body">Prof. Helena Danielson &amp; Dr. Marija Blazic<br>Uppsala University, Sweden<br><em style="font-size:0.78rem">Available on request</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                if (scrollTop > scrollThreshold) {
-                    if (scrollTop > lastScrollTop) {
-                        // Scrolling down
-                        header.classList.add('hidden');
-                    } else {
-                        // Scrolling up
-                        header.classList.remove('hidden');
-                    }
-                } else {
-                    // At the top
-                    header.classList.remove('hidden');
-                }
+<!-- RESEARCH -->
+<section id="research">
+  <div class="wrap">
+    <p class="lbl reveal">Research</p>
+    <h2 class="sh reveal">Lab Work &amp; Science.</h2>
+    <p class="sub reveal">From protein engineering in Uppsala to cancer biomarker discovery in Nigeria — rigorous, bench-to-insight research.</p>
 
-                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-            });
+    <div class="research-list">
+      <div class="rc reveal">
+        <div><div class="rc-date">2025–Present</div></div>
+        <div>
+          <span class="rc-badge phd">PhD Research</span>
+          <div class="rc-ttl">Cancer Biomarker Discovery</div>
+          <div class="rc-inst">Rivers State University · Port Harcourt, Nigeria</div>
+          <ul class="rc-bullets">
+            <li>Designing and implementing a multi-site clinical study protocol to analyse mitochondrial dysfunction markers and oxidative stress biomarkers in breast cancer patients across Rivers State, using established biochemical assays (ROS quantification, mitochondrial membrane potential, lipid peroxidation)</li>
+            <li>Developing standardized biochemical assay protocols for oxidative stress biomarker quantification in patient samples</li>
+            <li>Establishing clinical collaborations with oncology departments to ensure robust sample collection and patient data management</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rc reveal">
+        <div><div class="rc-date">2024–2025</div></div>
+        <div>
+          <span class="rc-badge msc">MSc Thesis</span>
+          <div class="rc-ttl">Protein Engineering</div>
+          <div class="rc-inst">Uppsala University · Uppsala, Sweden</div>
+          <ul class="rc-bullets">
+            <li>Successfully purified engineered proteins through multi-step purification protocols achieving &gt;90% purity</li>
+            <li>Performed post-translational modifications on engineered proteins and characterized products using DLS, SDS-PAGE, and spectroscopic methods</li>
+            <li>Optimized protein expression protocols in E. coli resulting in 3-fold yield improvement compared to standard conditions</li>
+            <li>Conducted enzyme kinetics studies and determined kinetic parameters (Km, Vmax, kcat) for multiple protein variants</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-            // Back to top button functionality
-            const backToTopButton = document.getElementById('backToTop');
+    <div class="tech-box reveal">
+      <div class="tech-lbl">Signature Lab Techniques</div>
+      <div class="tech-pills">
+        <span class="tp">Protein purification (affinity, ion-exchange, size-exclusion)</span>
+        <span class="tp">Protein crystallization (hanging-drop vapour diffusion)</span>
+        <span class="tp">Phage display (M13 library)</span>
+        <span class="tp">Enzyme immobilization on nanoporous aluminium oxide</span>
+        <span class="tp">SpinChem rotating-bed-reactor bioconjugation</span>
+        <span class="tp">Michaelis-Menten kinetics &amp; inhibition studies</span>
+        <span class="tp">SDS-PAGE &amp; Western blotting</span>
+        <span class="tp">Dynamic Light Scattering (DLS)</span>
+        <span class="tp">UV-Vis spectrophotometry</span>
+        <span class="tp">Fluorescence polarization</span>
+        <span class="tp">HPLC &amp; Nanodrop</span>
+        <span class="tp">ROS quantification &amp; lipid peroxidation assays</span>
+        <span class="tp">mRNA translation studies (mono/bi-cistronic IRES)</span>
+        <span class="tp">PCR &amp; molecular cloning</span>
+        <span class="tp">E. coli expression optimization</span>
+        <span class="tp">Surface functionalization (PDMS-on-glass, oxygen plasma)</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            });
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <p class="lbl reveal">Engineering</p>
+    <h2 class="sh reveal">Built &amp; Shipped.</h2>
+    <p class="sub reveal">Real platforms, real users — full lifecycle from requirements gathering to production.</p>
 
-            backToTopButton.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <div class="proj-grid">
 
+      <!-- Sirius Jobs -->
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:#f8f9fb;">
+          <img src="assets/images/sirius jobs logo.png" alt="Sirius Jobs" style="object-fit:contain;padding:20px;" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-body">
+          <span class="proj-status s-live">Live</span>
+          <div class="proj-ttl">Sirius Jobs</div>
+          <div class="proj-role">Founder &amp; CEO</div>
+          <p class="proj-desc">Nigerian recruitment and professional marketplace connecting verified artisans, professionals, vendors, and job seekers. Built and launched end-to-end.</p>
+          <div class="proj-stack"><span class="st">React</span><span class="st">Tailwind</span><span class="st">Supabase</span><span class="st">Vercel</span></div>
+          <a href="https://www.siriusjobs.com.ng" target="_blank" rel="noopener" class="proj-link">View Live <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Labogen Diagnostics -->
+      <div class="proj-card reveal d1">
+        <div class="proj-thumb">
+          <img src="assets/images/labogen.png" alt="Labogen Diagnostics" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-body">
+          <span class="proj-status s-live">Live · Client</span>
+          <div class="proj-ttl">Labogen Diagnostics</div>
+          <div class="proj-role">Developer</div>
+          <p class="proj-desc">Professional website for a genomic sequencing and medical diagnostics laboratory in Abuja — haematology, fertility services, ISO-aligned quality standards.</p>
+          <div class="proj-stack"><span class="st">HTML5</span><span class="st">CSS3</span><span class="st">JavaScript</span></div>
+          <a href="https://labogendiagnostics.vercel.app" target="_blank" rel="noopener" class="proj-link">View Live <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <!-- TenantFlow -->
+      <div class="proj-card reveal d2">
+        <div class="proj-thumb" style="background:#f8f9fb;">
+          <img src="assets/images/LOGO tenantflow.png" alt="TenantFlow" style="object-fit:contain;padding:20px;" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-body">
+          <span class="proj-status s-live">Live · Client</span>
+          <div class="proj-ttl">TenantFlow</div>
+          <div class="proj-role">Developer</div>
+          <p class="proj-desc">Nigerian property management and tenant platform — connecting landlords, property managers, and tenants with streamlined rental workflows.</p>
+          <div class="proj-stack"><span class="st">HTML5</span><span class="st">CSS3</span><span class="st">JavaScript</span></div>
+          <a href="https://tenantflow.com.ng" target="_blank" rel="noopener" class="proj-link">View Live <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <!-- MoveAbroad -->
+      <div class="proj-card reveal">
+        <div class="proj-thumb">
+          <img src="assets/images/moveabroad.jpg" alt="MoveAbroad.ng" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-body">
+          <span class="proj-status s-live">Live</span>
+          <div class="proj-ttl">MoveAbroad.ng</div>
+          <div class="proj-role">Developer</div>
+          <p class="proj-desc">Relocation guides and resources for Nigerians moving abroad — covering visas, settling in, finances, and life abroad across multiple countries.</p>
+          <div class="proj-stack"><span class="st">HTML5</span><span class="st">CSS3</span><span class="st">JavaScript</span></div>
+          <a href="https://moveabroad.vercel.app" target="_blank" rel="noopener" class="proj-link">View Live <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Naija HomeBox -->
+      <div class="proj-card reveal d1">
+        <div class="proj-thumb">
+          <img src="assets/images/logo naija homebox.png" alt="Naija HomeBox" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-body">
+          <span class="proj-status s-live">Live · Client</span>
+          <div class="proj-ttl">Naija HomeBox</div>
+          <div class="proj-role">Developer</div>
+          <p class="proj-desc">UK-based e-commerce platform delivering authentic Nigerian food ingredients — egusi, ogbono, crayfish, and more — nationwide across the United Kingdom.</p>
+          <div class="proj-stack"><span class="st">HTML5</span><span class="st">CSS3</span><span class="st">JavaScript</span></div>
+          <a href="https://naija-home-box.vercel.app" target="_blank" rel="noopener" class="proj-link">View Live <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Hair by Eunice -->
+      <div class="proj-card reveal d2">
+        <div class="proj-thumb" style="background:#f8f9fb;">
+          <img src="assets/images/hairbyeunice logo.png" alt="Hair by Eunice" style="object-fit:contain;padding:20px;" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-body">
+          <span class="proj-status s-live">Live · Client</span>
+          <div class="proj-ttl">Hair by Eunice</div>
+          <div class="proj-role">Developer</div>
+          <p class="proj-desc">Afro hair specialist salon website serving clients across Liverpool, Walsall, and Birmingham, UK — bookings, services showcase, and location pages.</p>
+          <div class="proj-stack"><span class="st">HTML5</span><span class="st">CSS3</span><span class="st">JavaScript</span></div>
+          <a href="https://hair-by-eunice.vercel.app" target="_blank" rel="noopener" class="proj-link">View Live <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Véloire Hair -->
+      <div class="proj-card reveal">
+        <div class="proj-thumb" style="background:#f8f9fb;">
+          <img src="assets/images/veloire hair logo.png" alt="Véloire Hair" style="object-fit:contain;padding:20px;" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-body">
+          <span class="proj-status s-live">Live · Client</span>
+          <div class="proj-ttl">Véloire Hair</div>
+          <div class="proj-role">Developer</div>
+          <p class="proj-desc">Premium wig specialist brand website for a UK-based luxury hair business — clean, elegant presentation with product showcase and contact.</p>
+          <div class="proj-stack"><span class="st">HTML5</span><span class="st">CSS3</span><span class="st">JavaScript</span></div>
+          <a href="https://veloiree-hair.vercel.app" target="_blank" rel="noopener" class="proj-link">View Live <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Gods Heritage Ministries (GHMI) — correct URL -->
+      <div class="proj-card reveal d1">
+        <div class="proj-thumb">
+          <img src="assets/images/thumbnail-ghmi.png" alt="Gods Heritage Ministries" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-body">
+          <span class="proj-status s-live">Live · Client</span>
+          <div class="proj-ttl">Gods Heritage Ministries</div>
+          <div class="proj-role">Developer</div>
+          <p class="proj-desc">Full church platform with events management, sermons, and community features — built for a faith-based organisation with a growing congregation.</p>
+          <div class="proj-stack"><span class="st">HTML5</span><span class="st">CSS3</span><span class="st">JavaScript</span></div>
+          <a href="https://godsheritageministries.org" target="_blank" rel="noopener" class="proj-link">View Live <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Felix Family -->
+      <div class="proj-card reveal d2">
+        <div class="proj-thumb">
+          <img src="Fam.jpeg" alt="Felix Family" onerror="this.style.display='none'">
+        </div>
+        <div class="proj-body">
+          <span class="proj-status s-live">Live</span>
+          <div class="proj-ttl">Felix Family</div>
+          <div class="proj-role">Developer</div>
+          <p class="proj-desc">Premium family legacy website with curated profiles, family history, and shared gallery — built for longevity and discretion.</p>
+          <div class="proj-stack"><span class="st">HTML5</span><span class="st">CSS3</span><span class="st">JavaScript</span></div>
+          <a href="https://felix-family.vercel.app" target="_blank" rel="noopener" class="proj-link">View Live <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <p class="lbl reveal">Career Timeline</p>
+    <h2 class="sh reveal">Experience.</h2>
+    <p class="sub reveal">From hospital labs to Uppsala lecture halls to remote work across continents.</p>
+
+    <div class="tl">
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-per">2025 – Present</div>
+        <div class="tl-role">PhD Researcher — Cancer Biomarker Discovery</div>
+        <div class="tl-org">Rivers State University · Port Harcourt, Nigeria</div>
+        <ul class="tl-ul">
+          <li>Multi-site clinical study on mitochondrial dysfunction and oxidative stress markers in breast cancer patients</li>
+          <li>Standardized biochemical assay protocol development for patient sample analysis</li>
+          <li>Oncology collaborations for sample collection and patient data management</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-per">2024 – Present</div>
+        <div class="tl-role">Founder &amp; CEO — Sirius Jobs</div>
+        <div class="tl-org">Port Harcourt, Nigeria</div>
+        <ul class="tl-ul">
+          <li>Built and launched a full-stack Nigerian marketplace connecting artisans, professionals, vendors, and job seekers</li>
+          <li>Delivered websites for law firms, restaurants, logistics companies, and religious institutions</li>
+          <li>Full product lifecycle: requirements → design → development → deployment; financial projections and stakeholder management</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-per">2024 – 2025</div>
+        <div class="tl-role">Master's Thesis Researcher — Protein Engineering</div>
+        <div class="tl-org">Uppsala University · Uppsala, Sweden</div>
+        <ul class="tl-ul">
+          <li>Purified engineered proteins to &gt;90% purity; characterized using DLS, SDS-PAGE, and spectroscopy</li>
+          <li>Optimized E. coli expression for 3-fold yield improvement; determined Km, Vmax, kcat across protein variants</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-per">2022 – 2023</div>
+        <div class="tl-role">Remote Technical Support Specialist</div>
+        <div class="tl-org">Netevia LLC · California, USA (Remote)</div>
+        <ul class="tl-ul">
+          <li>Resolved 50+ customer issues weekly with 95% first-contact resolution rate</li>
+          <li>Reduced repeat issues by 30% through systematic log analysis and troubleshooting</li>
+          <li>Maintained detailed case documentation; contributed to team knowledge base</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot dim"></div>
+        <div class="tl-per">2021 – 2022</div>
+        <div class="tl-role">Basic Science Teacher — NYSC Service Year</div>
+        <div class="tl-org">Nigerian Air Force Primary School · Jos, Plateau State</div>
+        <ul class="tl-ul">
+          <li>Instructed 120+ students across 6 classes; mentored students in scientific inquiry and critical thinking</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot dim"></div>
+        <div class="tl-per">2018 – 2019</div>
+        <div class="tl-role">Assistant Laboratory Scientist</div>
+        <div class="tl-org">El Bene Hospital · Rivers State, Nigeria</div>
+        <ul class="tl-ul">
+          <li>Clinical laboratory diagnostics: 30+ samples daily, phlebotomy, zero contamination incidents</li>
+          <li>Inventory and equipment management; reduced supply shortages via systematic tracking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <p class="lbl reveal">Technical Skills</p>
+    <h2 class="sh reveal">Capabilities.</h2>
+    <p class="sub reveal">Two distinct skillsets — one rigorous scientific mind.</p>
+    <div class="sk-grid">
+      <div class="sk-grp reveal">
+        <div class="sk-grp-ttl">Protein Science &amp; Enzymology</div>
+        <div class="sk-pills">
+          <span class="sp">Protein purification</span><span class="sp">Enzyme kinetics</span><span class="sp">Enzyme immobilization</span><span class="sp">Post-translational modification</span><span class="sp">Protein crystallization</span><span class="sp">Fluorescence polarization</span><span class="sp">BCA assay</span><span class="sp">DLS</span><span class="sp">SDS-PAGE</span><span class="sp">Western blotting</span><span class="sp">Enzyme activity assays</span>
+        </div>
+      </div>
+      <div class="sk-grp reveal d1">
+        <div class="sk-grp-ttl">Molecular Biology &amp; Biotechnology</div>
+        <div class="sk-pills">
+          <span class="sp">PCR</span><span class="sp">Phage display (M13)</span><span class="sp">Molecular cloning</span><span class="sp">DNA/RNA extraction</span><span class="sp">Bacterial culture</span><span class="sp">E. coli expression</span><span class="sp">IRES/mRNA translation</span><span class="sp">Transformation &amp; selection</span>
+        </div>
+      </div>
+      <div class="sk-grp reveal d2">
+        <div class="sk-grp-ttl">Analytical Instrumentation</div>
+        <div class="sk-pills">
+          <span class="sp">UV-Vis spectrophotometry</span><span class="sp">Fluorescence polarization</span><span class="sp">HPLC</span><span class="sp">Gel electrophoresis</span><span class="sp">Nanodrop</span><span class="sp">Microplate readers</span><span class="sp">pH meters &amp; electrochemistry</span>
+        </div>
+      </div>
+      <div class="sk-grp reveal">
+        <div class="sk-grp-ttl">Bioinformatics &amp; Data Analysis</div>
+        <div class="sk-pills">
+          <span class="sp">BLAST</span><span class="sp">DAVID</span><span class="sp">PyMOL</span><span class="sp">STRING</span><span class="sp">Hippie</span><span class="sp">Python</span><span class="sp">Statistical analysis</span><span class="sp">Data visualization</span><span class="sp">PubMed · Web of Science</span>
+        </div>
+      </div>
+      <div class="sk-grp reveal d1">
+        <div class="sk-grp-ttl">Web Development</div>
+        <div class="sk-pills">
+          <span class="sp">HTML5</span><span class="sp">CSS3</span><span class="sp">JavaScript</span><span class="sp">React</span><span class="sp">Tailwind CSS</span><span class="sp">Responsive design</span><span class="sp">UI design</span><span class="sp">Supabase</span><span class="sp">Vercel</span>
+        </div>
+      </div>
+      <div class="sk-grp reveal d2">
+        <div class="sk-grp-ttl">Quality &amp; Research Tools</div>
+        <div class="sk-pills">
+          <span class="sp">GMP</span><span class="sp">GLP</span><span class="sp">QA/QC</span><span class="sp">SOPs</span><span class="sp">Lab safety protocols</span><span class="sp">Scientific writing</span><span class="sp">Data analysis</span><span class="sp">Research methodology</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <p class="lbl reveal">Education</p>
+    <h2 class="sh reveal">Academic Background.</h2>
+    <p class="sub reveal">Three degrees across two countries — a decade of rigorous scientific training.</p>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div class="edu-deg">Doctor of Philosophy (PhD) in Biochemistry</div>
+        <div class="edu-uni">Rivers State University</div>
+        <div class="edu-yr">2025 – Present · Port Harcourt, Nigeria</div>
+        <div class="edu-thesis"><b>Research:</b> Mitochondrial dysfunction and oxidative stress as early biomarkers for breast cancer detection in Nigerian women.</div>
+      </div>
+      <div class="edu-card reveal d1">
+        <div class="edu-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div class="edu-deg">Master of Science (MSc) in Biochemistry</div>
+        <div class="edu-uni">Uppsala University, Sweden</div>
+        <div class="edu-yr">2022 – 2025 · Uppsala, Sweden</div>
+        <div class="edu-thesis"><b>Thesis:</b> Production and post-translational modification of engineered proteins with applications as therapeutics or medical devices.</div>
+      </div>
+      <div class="edu-card reveal d2">
+        <div class="edu-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div class="edu-deg">Bachelor of Science (BSc) in Biochemistry</div>
+        <div class="edu-uni">University of Port Harcourt</div>
+        <div class="edu-yr">2015 – 2019 · Port Harcourt, Nigeria</div>
+        <div class="edu-thesis"><b>Thesis:</b> Bioactive components in Dennettia tripetala (pepper fruit) seeds — key phytochemical compounds with potential medicinal applications.</div>
+      </div>
+    </div>
+    <div class="certs reveal">
+      <div class="cert"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> GMP — Alison, 2025</div>
+      <div class="cert"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> GLP — Alison, 2025</div>
+      <div class="cert"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> Web Development — Self-directed, 2020</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <p class="lbl reveal">Contact</p>
+        <h3 class="reveal">Let's work<br>together.</h3>
+        <p class="reveal">Open to research roles in <strong>pharma, biotech, and academia in Europe</strong> — and remote frontend development opportunities.</p>
+        <p class="reveal">I respond to all serious enquiries within 24 hours.</p>
+        <div class="ref-box reveal">
+          <strong>References available on request:</strong><br>
+          Prof. Helena Danielson — helena.danielson@kemi.uu.se<br>
+          Dr. Marija Blazic — marija.blazic@kemi.uu.se<br>
+          Uppsala University, Sweden
+        </div>
+      </div>
+      <div class="clinks">
+        <a href="mailto:chizimvictory@gmail.com" class="clink reveal">
+          <div class="clink-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+          <div><div class="clink-lbl">Email</div><div class="clink-val">chizimvictory@gmail.com</div></div>
+        </a>
+        <a href="tel:+2347044470559" class="clink reveal d1">
+          <div class="clink-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.82 9.5 19.79 19.79 0 0 1 1.73 4 2 2 0 0 1 3.69 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg></div>
+          <div><div class="clink-lbl">Phone</div><div class="clink-val">+234 704 447 0559</div></div>
+        </a>
+        <a href="https://wa.me/2347044470559" target="_blank" rel="noopener" class="clink reveal d2">
+          <div class="clink-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+          <div><div class="clink-lbl">WhatsApp</div><div class="clink-val">+234 704 447 0559</div></div>
+        </a>
+        <a href="https://linkedin.com/in/chizim-felix" target="_blank" rel="noopener" class="clink reveal d3">
+          <div class="clink-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div><div class="clink-lbl">LinkedIn</div><div class="clink-val">linkedin.com/in/chizim-felix</div></div>
+        </a>
+        <div class="clink reveal d4" style="cursor:default">
+          <div class="clink-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="clink-lbl">Location</div><div class="clink-val">Port Harcourt, Nigeria · Open to Europe</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <span class="foot-name">Chizim Victory Felix</span>
+      <ul class="foot-links">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="Chizim_Felix_CV_Final_Updated.pdf" target="_blank">CV ↗</a></li>
+      </ul>
+      <span class="foot-copy">© 2025 Chizim Victory Felix</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="btt" aria-label="Back to top" style="
+  position:fixed;bottom:28px;right:28px;z-index:99;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--accent);color:#fff;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(37,99,235,0.3);
+  opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s,transform 0.2s;
+">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav')
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), { passive: true })
+
+  // Hamburger
+  document.getElementById('ham').addEventListener('click', () => {
+    document.getElementById('mob').classList.toggle('open')
+  })
+  function closeMob() { document.getElementById('mob').classList.remove('open') }
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target) } })
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' })
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el))
+
+  // Active nav link
+  const secs = document.querySelectorAll('section[id]')
+  const nls = document.querySelectorAll('.nav-links a')
+  window.addEventListener('scroll', () => {
+    let cur = ''
+    secs.forEach(s => { if (scrollY >= s.offsetTop - 100) cur = s.id })
+    nls.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur))
+  }, { passive: true })
+
+  // Back to top
+  const btt = document.getElementById('btt')
+  window.addEventListener('scroll', () => {
+    const show = scrollY > 400
+    btt.style.opacity = show ? '1' : '0'
+    btt.style.visibility = show ? 'visible' : 'hidden'
+  }, { passive: true })
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }))
+  btt.addEventListener('mouseenter', () => btt.style.transform = 'translateY(-3px)')
+  btt.addEventListener('mouseleave', () => btt.style.transform = '')
+</script>
 </body>
 </html>
